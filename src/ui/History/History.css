@@ -1,0 +1,45 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.title .btn {
+  margin: 0;
+}
+
+.title h3 {
+  font-size: 24px;
+  color: #fcfcfd;
+  font-weight: 300;
+  margin-right: 10px;
+  line-height: 22px;
+}
+
+.historyBlock {
+  border-bottom: 1px solid #fff;
+  margin: 15px 0;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.historyBlock p {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #fcfcfd;
+}
+
+.historyBlock p:nth-child(2) {
+  color: #5e6faa;
+}
+
+.historyBlock .btn {
+  margin: 2px;
+  padding: 5px;
+}
+.btns {
+  display: flex;
+  align-items: center;
+}

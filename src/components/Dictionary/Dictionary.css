@@ -1,0 +1,51 @@
+h2 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #8da6ff;
+  margin-bottom: 20px;
+}
+
+.letter {
+  font-size: 30px;
+  color: #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 4px;
+}
+
+.translation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 15px 0;
+  padding: 5px 0;
+  text-align: right;
+}
+.translation::after {
+  display: block;
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  background: linear-gradient(to right, #f2f2f2, #f2f2f2, #8da6ff, #8da6ff);
+  bottom: -5px;
+}
+
+.translation h3 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #f2f2f2;
+  width: 42%;
+  line-height: 23px;
+  text-align: left;
+}
+
+.translation h4 {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 300;
+  color: #8da6ff;
+  text-align: right;
+  width: 42%;
+}

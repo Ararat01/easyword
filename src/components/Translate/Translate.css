@@ -1,0 +1,156 @@
+textarea {
+  padding: 10px;
+  border-radius: 10px;
+  height: 25vh;
+  width: 100%;
+  resize: none;
+  font-size: 25px;
+  color: #fff;
+}
+
+.text {
+  background: #1c2d6b;
+  border: 1px solid #3c4c88;
+}
+
+.translate {
+  background-color: #556bbe;
+  margin-top: 20px;
+  border: 1px solid #556bbe;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+textarea::placeholder {
+  color: #fcfcfd9c;
+}
+.cls-1 {
+  fill: none;
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.actions {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.btn {
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 16px;
+  margin-top: 15px;
+  border: 1px solid #3c4c88;
+  color: #fff;
+  background-color: #1a254f;
+}
+
+.translateAreas {
+  position: relative;
+}
+
+.copyBtn {
+  position: absolute;
+  padding: 8px;
+  right: 10px;
+  bottom: 15px;
+  animation: appear 0.3s;
+  font-size: 0;
+}
+.copyBtn svg {
+  margin: 0 !important;
+}
+
+.Toastify__progress-bar-theme--light {
+  background: #3c4c88;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  2% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.btn span,
+.btn svg {
+  color: #fcfcfd;
+  margin: 0 5px;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a254f;
+  border: 1px solid #414b6e;
+  border-radius: 25px;
+  margin: 20px 0 30px;
+  height: 54px;
+}
+
+.langBtn {
+  flex: 1;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 15px 30px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.changeBtn {
+  position: relative;
+  padding: 20px;
+  box-shadow: 2px 10px 17px 0 rgba(17, 0, 0, 0.386);
+  border-radius: 50%;
+  background-color: #6f85d6;
+  border: none;
+}
+
+.mainLangs {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.changeLanguageDiv {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  flex-wrap: wrap;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
+  background-color: #152f8d;
+  border-radius: 15px;
+
+  margin: 20px;
+  transform: scale(0);
+  transition: transform 0.3s;
+}
+
+.changeLanguageDiv.opened {
+  padding: 10px;
+  box-shadow: 0px 0px 15px 3px #fff;
+  transform: scale(1);
+}
+
+.changeLanguageDiv button {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #556bbe;
+  color: #fcfcfd;
+  font-size: 18px;
+  background-color: transparent;
+}

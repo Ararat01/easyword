@@ -1,0 +1,71 @@
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 50px;
+  margin-top: 25px;
+  background-color: #6f85d6;
+}
+
+.userImage {
+  height: 70px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #1a254f;
+  margin-right: 15px;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userInfo h4 {
+  font-size: 23px;
+  font-weight: 400;
+  color: #f2f2f2;
+}
+
+.userInfo h5 {
+  font-size: 22px;
+  font-weight: 300;
+  color: #f2f2f279;
+}
+
+.user svg {
+  width: 35px;
+  margin-right: 5px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+button.option {
+  border: none;
+}
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 50px;
+  background-color: #6f85d6;
+  width: 100%;
+  margin-top: 20px;
+}
+.option h5 {
+  font-size: 22px;
+  font-weight: 400;
+  color: #f2f2f2;
+  margin: 0 15px;
+}
+.option svg {
+  width: 30px;
+}
