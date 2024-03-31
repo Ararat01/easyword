@@ -47,6 +47,7 @@ const Translate = () => {
   );
   const [toChangeLang, setToChangeLang] = useState("");
   const textAreaRef = useRef(null);
+  const [userInfoCheck, refreshInfo] = useState(1);
 
   // functions
   const input = ({ target }) => {
@@ -177,6 +178,24 @@ const Translate = () => {
       customNotify("🙏 Thanks for letting us know! We'll work on it.", 2000);
     }
   };
+
+  useEffect(() => {
+    if (!checkAuth()) {
+      window.location.pathname = "/user";
+    }
+    setTimeout(() => {
+      if (window.localStorage.getItem("user")) {
+        setUser(JSON.parse(window.localStorage.getItem("user")));
+      } else {
+        if (userInfoCheck >= 15) {
+          if (!checkAuth()) {
+            window.location.pathname = "/user";
+          }
+        }
+        refreshInfo((i) => i + 1);
+      }
+    }, 300);
+  }, [userInfoCheck]);
 
   return (
     <div className="page">
