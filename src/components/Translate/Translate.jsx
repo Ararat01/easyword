@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import copy from "copy-to-clipboard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,7 @@ import "./Translate.css";
 import History from "../../ui/History/History.jsx";
 import addDict from "../../utils/addDict.js";
 import reportTranslation from "../../utils/reportTranslation.js";
+import { checkAuth } from "../../utils/checkAuth.js";
 
 const Translate = () => {
   const customNotify = (text, time = 1000) => {
@@ -184,9 +185,7 @@ const Translate = () => {
       window.location.pathname = "/user";
     }
     setTimeout(() => {
-      if (window.localStorage.getItem("user")) {
-        setUser(JSON.parse(window.localStorage.getItem("user")));
-      } else {
+      if (!window.localStorage.getItem("user")) {
         if (userInfoCheck >= 15) {
           if (!checkAuth()) {
             window.location.pathname = "/user";
