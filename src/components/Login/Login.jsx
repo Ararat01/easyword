@@ -4,11 +4,13 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import API_URL from "../../utils/config.js";
+import LoadingBox from "../../ui/Loading/LoadingBox.jsx";
 import "./Login.css";
 
 export default function Login({ change }) {
   const navigate = useNavigate();
   const [errors, setErrors] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -19,6 +21,7 @@ export default function Login({ change }) {
   });
 
   const onSubmit = async (values) => {
+    setLoading(true);
     try {
       await axios
         .post(`${API_URL}/log`, values)
@@ -28,43 +31,49 @@ export default function Login({ change }) {
         })
         .catch(({ response }) => {
           setErrors(response.data.message);
+          setLoading(false);
         });
     } catch (err) {
       console.log(1, err);
+      window.location.reload();
     }
   };
 
   return (
     <div className="container">
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <input
-          autoComplete="off"
-          type="email"
-          placeholder="Email"
-          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
-          name="email"
-        />
-        <input
-          autoComplete="off"
-          type="password"
-          placeholder="Password"
-          {...register("password", {
-            required: true,
-            minLength: 8,
-          })}
-          name="password"
-        />
-        <span className="errors">{errors}</span>
-        <button className="form__btn" type="submit">
-          Log In
-        </button>
-        <div className="log_reg">
-          <span>Don't have an account?</span>
-          <button className="button" onClick={change}>
-            register
+      {loading ? (
+        <LoadingBox />
+      ) : (
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            autoComplete="off"
+            type="email"
+            placeholder="Email"
+            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+            name="email"
+          />
+          <input
+            autoComplete="off"
+            type="password"
+            placeholder="Password"
+            {...register("password", {
+              required: true,
+              minLength: 8,
+            })}
+            name="password"
+          />
+          <span className="errors">{errors}</span>
+          <button className="form__btn" type="submit">
+            Log In
           </button>
-        </div>
-      </form>
+          <div className="log_reg">
+            <span>Don't have an account?</span>
+            <button className="button" onClick={change}>
+              register
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }
